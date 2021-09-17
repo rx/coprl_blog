@@ -1,4 +1,4 @@
-Coprl::Presenters.define(:hello_multiverse) do
+Coprl::Presenters.define(:components) do
   grid do
     column 1
     column 5 do
