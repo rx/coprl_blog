@@ -1,0 +1,16 @@
+Coprl::Presenters.define("_form", namespace: :blog_posts) do
+  helpers  BlogPostsHelper
+
+    text_field name: :name do
+      label :name
+      value blog_post.name if params[:post_id]
+    end
+    text_field name: :title do
+      label :title
+      value blog_post.title if params[:post_id]
+    end
+    text_field name: :content do
+      label :content
+      value blog_post.content if params[:post_id]
+    end
+end

@@ -1,0 +1,17 @@
+Coprl::Presenters.define(:new, namespace: :blog_posts) do
+  grid do
+    column 1
+    column 5 do
+      heading 'New Blog Post'
+      content do
+      attach '_form'
+      button 'Create' do
+        event :click do
+          creates blog_posts_path
+        end
+      end
+      end
+      link 'Back', presenter_path(:index)
+    end
+  end
+end

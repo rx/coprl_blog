@@ -1,0 +1,32 @@
+Coprl::Presenters.define(:hello_multiverse) do
+  grid do
+    column 1
+    column 5 do
+      title "List Things"
+      list do
+        line 'Thing 1' do
+          actions do
+            icon :edit
+            icon :delete
+          end
+        end
+      end
+
+      title "Add/Edit a thing"
+      content do
+        text_field name: :text do
+          label 'Name'
+        end
+        button 'Add/Edit Thing' do
+        end
+      end
+
+      title "Show a thing"
+      card do
+        heading "I'm a card"
+        body 'rx'
+        body "I say more stuff"
+      end
+    end
+  end
+end

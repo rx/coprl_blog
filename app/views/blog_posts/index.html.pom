@@ -1,0 +1,34 @@
+Coprl::Presenters.define(:index, namespace: :blog_posts) do
+  helpers BlogPostsHelper
+  snackbar params[:notice] if params[:notice]
+  grid do
+    column 1
+    column 5 do
+      heading 'Posts'
+      list do
+        blog_posts.each do |post|
+          line post.title do
+            actions do
+              icon :edit do
+                event :click do
+                  loads :edit, post_id: post.id
+                end
+              end
+              icon :delete do
+                event :click do
+                  dialog "are_you_sure#{post.id}"
+                end
+              end
+            end
+            event :click do
+              loads :show, post_id: post.id
+            end
+          end
+        end
+      end
+      link 'New Post', presenter_path(:new)
+    end
+  end
+  confirm_delete_dialog
+end
+

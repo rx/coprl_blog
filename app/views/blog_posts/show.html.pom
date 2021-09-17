@@ -1,0 +1,18 @@
+Coprl::Presenters.define(:show, namespace: :blog_posts) do
+  helpers BlogPostsHelper
+
+  snackbar params[:notice] if params[:notice]
+  grid do
+    column 1
+    column 5 do
+      card do
+        heading blog_post.title
+        body blog_post.name
+        body blog_post.content
+      end
+      link 'Edit', presenter_path(:edit,post_id: params[:post_id])
+      link 'Back', presenter_path(:index)
+    end
+
+  end
+end

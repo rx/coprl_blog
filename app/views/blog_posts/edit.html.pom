@@ -1,0 +1,19 @@
+Coprl::Presenters.define(:edit, namespace: :blog_posts) do
+  helpers BlogPostsHelper
+  grid do
+    column 1
+    column 5 do
+      heading 'Editing Blog Post'
+      content do
+        attach '_form'
+        button 'Update' do
+          event :click do
+            updates blog_post_path(blog_post)
+          end
+        end
+      end
+      link 'Show', presenter_path(:show, post_id: blog_post.id)
+      link 'Back', presenter_path(:index)
+    end
+  end
+end
